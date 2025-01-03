@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        times: ['"Times New Roman"', 'serif'],
       },
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",

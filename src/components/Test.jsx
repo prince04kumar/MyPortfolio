@@ -1,25 +1,26 @@
-import React from 'react'
-import  Spotlight  from './UI/spotlight'
-import TdPin from './UI/3d-pin'
+import React from "react";
+import Cards from "./Cards";
+import Form from "./Form";
 
-const Test = () => {
+const Bubbles = () => {
   return (
-    <div className='h-screen w-screen flex justify-center items-center bg-gradient-to-b from-[#1d1027] to-[#08030B] relative'>
-        <Spotlight className= "-top-40 h-[90%] -left-32" />
-        <Spotlight className= "-top-40 right-0 h-[90%] transform rotate-80" />
-      <div className='absolute inset-0 flex justify-center items-center'>
-        <div className='h-96 w-64 md:h-96 md:w-96 rounded-full bg-[#6F245A] blur-3xl opacity-50'></div>
-        <div className='h-96  w-64 md:h-96 md:w-96 rounded-full  bg-[#2E418D] blur-3xl opacity-50 mt-8 -ml-16 md:-ml-32'></div>
-      </div>
-      <div className='absolute inset-0 bg-white/3 backdrop-blur-md'></div>
-      <h1 className='text-white z-10 font-extrabold text-6xl md:text-9xl flex flex-col items-center gap-4'>
-        <span className='block md:inline text-transparent bg-clip-text bg-gradient-to-r from-[#FF69B4] via-[#6F245A] to-[#2E418D] mix-blend-overlay'>Digital</span>
-        <span className='block  text-transparent bg-clip-text bg-gradient-to-r from-[#FF69B4] via-[#6F245A] to-[#2E418D] mix-blend-overlay'>Craftman</span>
-       </h1>
-       <div className="h-36 w-36 bg-pink-800 z-10 " > <TdPin/></div>
-      
-    </div>
-  )
-}
+    <div className="relative w-screen h-full md:h-screen bg-gradient-to-b from-gray-800 to-black overflow-hidden flex flex-col items-center gap-4 justify-center">
+      {/* Bubble 1 */}
+      <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-gradient-to-b from-gray-700 to-gray-900 rounded-full shadow-2xl opacity-80 blur-md" />
 
-export default Test
+      {/* Bubble 2 */}
+      <div className="absolute bottom-1/3 right-1/3 w-[200px] h-[200px] bg-gradient-to-b from-gray-700 to-gray-900 rounded-full shadow-2xl opacity-80 blur-md" />
+
+      {/* Bubble 3 (optional for variety) */}
+      <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-gradient-to-b from-gray-700 to-gray-900 rounded-full shadow-2xl opacity-70 blur-md" />
+
+      {/* Adjust layout to prevent overlapping */}
+      <div className="flex flex-col md:flex-row md:justify-around h-full w-full gap-36 items-center p-8 pb-10">
+        <div className="mb-40 mt-20"> <Cards /></div>
+        <div className="m-4 md:m-0 rounded-lg"> <Form /></div>
+      </div>
+    </div>
+  );
+};
+
+export default Bubbles;

@@ -16,7 +16,7 @@ const ExperienceCard = ({ experience }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "#1d1836",
+        background: "#0000004b",
         color: "#fff",
       }}
       contentArrowStyle={{ borderRight: "7px solid  #232631" }}
@@ -58,7 +58,7 @@ const ExperienceCard = ({ experience }) => {
 
 const Tech = () => {
   return (
-    <div className='h-full md:h-screen w-screen text-white bg-black relative overflow-scroll'>
+    <div className='h-full  w-screen text-white bg-black relative overflow-scroll'>
       <div className='absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(50,50,50,0.8)_0%,transparent_100%)]'></div>
 
       <motion.div variants={textVariant()} className='relative z-10'>
