@@ -4,26 +4,25 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  mode: "jit",
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-        times: ['"Times New Roman"', 'serif'],
+      colors: {
+        primary: "#050816",
+        secondary: "#aaa6c3",
+        tertiary: "#151030",
+        "black-100": "#100d25",
+        "black-200": "#090325",
+        "white-100": "#f3f3f3",
       },
-      animation: {
-        spotlight: "spotlight 2s ease .75s 1 forwards",
+      boxShadow: {
+        card: "0px 35px 120px -15px #211e35",
       },
-      keyframes: {
-        spotlight: {
-          "0%": {
-            opacity: 0,
-            transform: "translate(-72%, -62%) scale(0.5)",
-          },
-          "100%": {
-            opacity: 1,
-            transform: "translate(-50%,-40%) scale(1)",
-          },
-        },
+      screens: {
+        xs: "450px",
+      },
+      backgroundImage: {
+        "hero-pattern": "url('/src/assets/herobg.png')",
       },
     },
   },

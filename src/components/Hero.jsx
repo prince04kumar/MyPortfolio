@@ -1,33 +1,50 @@
-import React from 'react'
-import Navbar from './Navbar'
+import { motion } from "framer-motion";
+import { styles } from "../styles";
+import { ComputersCanvas } from "./canvas";
 
 const Hero = () => {
   return (
-    <div className='h-full md:h-screen w-screen text-white bg-black relative font-times'>
-      <Navbar />
-      <div className='absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(50,50,50,0.8)_0%,transparent_100%)]'></div>
-      <div className='h-full w-full flex flex-col md:flex-row justify-center items-center relative pt-10'>
-        <div className='h-full w-full flex flex-col  gap-20 justify-center overflow-hidden items-center'>
-          <div className='  font-sans flex flex-col text-lg font-[900] text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 mt-16'>
-            <span className='block md:text-8xl text-6xl md:leading-[85px] leading-normal m-0 p-0 font-serif'>PRINCE </span>
-            <span className='block md:text-8xl text-4xl md:leading-[85px] leading-normal   p-0 font-serif text-center'>&nbsp;&nbsp;&nbsp;KUMAR</span>
-          </div>
-          <p className='text-center text-lg font-sans font-[900] mt-4 md:mt-0 md:w-[80%] text-transparent bg-clip-text px-6 bg-gradient-to-r from-white to-gray-300'>
-            As a driven developer, I specialize in full-stack web development, AI integrations, and innovative projects, combining technical expertise and creativity to deliver impactful solutions and exceptional user experiences.
+    <section className={`relative w-full h-screen mx-auto`}>
+      <div
+        className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
+      >
+        <div className='flex flex-col justify-center items-center mt-5'>
+          <div className='w-5 h-5 rounded-full bg-[#915EFF]' />
+          <div className='w-1 sm:h-80 h-40 violet-gradient' />
+        </div>
+
+        <div>
+          <h1 className={`${styles.heroHeadText} text-white`}>
+            Hi, I'm <span className='text-[#915EFF]'>Prince</span>
+          </h1>
+          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
+            I develop modern web applications, <br className='sm:block hidden' />
+            user interfaces and 3D visual experiences
           </p>
         </div>
-        <div className='h-full w-full flex flex-col items-center md:justify-center overflow-hidden md:items-center'>
-          <video className='w-48 h-48 rounded-md md:absolute md:top-16 md:right-40' autoPlay loop muted>
-            <source src="./framer-video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          <div className='p-8'>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi labore nesciunt perferendis officia facere odit tempore dolores amet omnis, adipisci reiciendis fugiat, ratione placeat nisi maxime maiores mollitia nam consequatur nostrum repellat. Ipsum fugit deleniti eaque voluptate ipsa ad facilis nesciunt non enim, ipsam totam soluta praesentium reiciendis animi vitae voluptatibus inventore sequi, itaque, quam distinctio error commodi perspiciatis in.
-          </div>
-        </div>
       </div>
-    </div>
-  )
-}
 
-export default Hero
+      <ComputersCanvas />
+
+      <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
+        <a href='#about'>
+          <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
+            <motion.div
+              animate={{
+                y: [0, 24, 0],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: "loop",
+              }}
+              className='w-3 h-3 rounded-full bg-secondary mb-1'
+            />
+          </div>
+        </a>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;

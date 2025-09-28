@@ -1,97 +1,109 @@
-import { motion, useMotionValue, useTransform } from "framer-motion";
 import React from "react";
+import { Tilt } from "react-tilt";
+import { motion } from "framer-motion";
 
-const Work = () => {
-  const TiltCard = () => {
-    // Define motion values for tilt
-    const rotateX = useMotionValue(0);
-    const rotateY = useMotionValue(0);
+import { styles } from "../styles";
+import { github } from "../assets";
+import { SectionWrapper } from "../hoc";
+import { projects } from "../constants";
+import { fadeIn, textVariant } from "../utils/motion";
 
-    // Transform tilt values into style
-    const tiltStyle = useTransform(
-      [rotateX, rotateY],
-      ([x, y]) => `perspective(1000px) rotateX(${x}deg) rotateY(${y}deg)`
-    );
-
-    const handleMouseMove = (e) => {
-      const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
-      const x = e.clientX - left; // Cursor position within the element
-      const y = e.clientY - top;
-
-      // Calculate rotation values based on cursor position
-      const rotateYValue = ((x / width) * 30 - 15).toFixed(2); // Rotate Y (-15 to 15 degrees)
-      const rotateXValue = ((y / height) * -30 + 15).toFixed(2); // Rotate X (-15 to 15 degrees)
-
-      rotateX.set(rotateXValue);
-      rotateY.set(rotateYValue);
-    };
-
-    const handleMouseLeave = () => {
-      // Reset tilt on mouse leave
-      rotateX.set(0);
-      rotateY.set(0);
-    };
-
-    return (
-      <motion.div
-  className="shadow-lg cursor-pointer"
-  style={{
-    width: 300,
-    height: 200,
-    borderRadius: "10px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    transformOrigin: "center",
-    boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
-    transform: tiltStyle, // Apply the dynamic tilt style
-    padding: "4px", // Padding to create space for the border
-    background: "linear-gradient(90deg, #069A87, #BF61FF)", // Gradient for the outer border
-  }}
-  onMouseMove={handleMouseMove}
-  onMouseLeave={handleMouseLeave}
->
-  <div
-    style={{
-      width: "100%",
-      height: "100%",
-      borderRadius: "inherit", // Inherit the parent borderRadius
-      background: "rgba(255, 255, 255, 0.1)", // Blurry transparent background
-      backdropFilter: "blur(10px)", // Add blur effect for glossy look
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-    }}
-  >
-    <div className="font-black text-black">this is card</div>
-  </div>
-</motion.div>
-
-
-    );
-  };
-
+const ProjectCard = ({
+  index,
+  name,
+  description,
+  tags,
+  image,
+  source_code_link,
+  live_demo_link,
+}) => {
   return (
-    <div className="inset-0 bg-black">
-      <div className="h-full md:h-screen w-screen text-white inset-0 bg-[radial-gradient(circle_at_top,rgba(50,50,50,0.8)_0%,transparent_100%)] flex flex-col">
-        {/* Title Section */}
-        <div className="font-sans flex flex-col text-lg font-[900] text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 p-16">
-          <span className="block md:text-8xl text-4xl md:leading-[85px] leading-normal m-0 p-0">
-            MY
-          </span>
-          <span className="block md:text-8xl text-4xl md:leading-[85px] leading-normal m-0 p-0">
-            &nbsp;&nbsp;&nbsp;PROJECTS
-          </span>
+    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+      <Tilt
+        options={{
+          max: 45,
+          scale: 1,
+          speed: 450,
+        }}
+        className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
+      >
+        <div className='relative w-full h-[230px]'>
+          <img
+            src={image}
+            alt='project_image'
+            className='w-full h-full object-cover rounded-2xl'
+          />
+
+          <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
+            <div
+              onClick={() => window.open(source_code_link, "_blank")}
+              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+            >
+              <img
+                src={github}
+                alt='source code'
+                className='w-1/2 h-1/2 object-contain'
+              />
+            </div>
+            {live_demo_link && (
+              <div
+                onClick={() => window.open(live_demo_link, "_blank")}
+                className='green-pink-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer ml-2'
+              >
+                <span className='text-white text-xs font-bold'>LIVE</span>
+              </div>
+            )}
+          </div>
         </div>
 
-        {/* Projects Section */}
-        <div className="flex flex-wrap justify-center gap-4 p-16 overflow-scroll">
-          {/* Replace Tilt with Framer Motion */}
-          <TiltCard />
+        <div className='mt-5'>
+          <h3 className='text-white font-bold text-[24px]'>{name}</h3>
+          <p className='mt-2 text-secondary text-[14px]'>{description}</p>
         </div>
-      </div>
-    </div>
+
+        <div className='mt-4 flex flex-wrap gap-2'>
+          {tags.map((tag) => (
+            <p
+              key={`${name}-${tag.name}`}
+              className={`text-[14px] ${tag.color}`}
+            >
+              #{tag.name}
+            </p>
+          ))}
+        </div>
+      </Tilt>
+    </motion.div>
   );
 };
 
-export default Work;
+const Works = () => {
+  return (
+    <section id="projects">
+      <motion.div variants={textVariant()}>
+        <p className={`${styles.sectionSubText} `}>My work</p>
+        <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
+      </motion.div>
+
+      <div className='w-full flex'>
+        <motion.p
+          variants={fadeIn("", "", 0.1, 1)}
+          className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
+        >
+          Following projects showcases my skills and experience through
+          real-world examples of my work. Each project is briefly described with
+          links to code repositories and live demos in it. It reflects my
+          ability to solve complex problems, work with different technologies,
+          and manage projects effectively.
+        </motion.p>
+      </div>
+
+      <div className='mt-20 flex flex-wrap gap-7'>
+        {projects.map((project, index) => (
+          <ProjectCard key={`project-${index}`} index={index} {...project} />
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default SectionWrapper(Works, "projects");

@@ -116,55 +116,55 @@ import {
   
   const experiences = [
     {
-      title: "React.js Developer",
-      company_name: "Starbucks",
+      title: "Full Stack Developer",
+      company_name: "NIT Raipur",
       icon: starbucks,
       iconBg: "#383E56",
-      date: "March 2020 - April 2021",
+      date: "2023 - Present",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Currently pursuing Electronics and Communication Engineering at NIT Raipur (2023-2027)",
+        "Developing full-stack web applications using MERN stack technologies",
+        "Building healthcare management systems with React.js, Node.js, and MongoDB",
+        "Creating real-time applications with WebRTC and Socket.io for video communication",
       ],
     },
     {
-      title: "React Native Developer",
-      company_name: "Tesla",
+      title: "Frontend Developer",
+      company_name: "Personal Projects",
       icon: tesla,
       iconBg: "#E6DEDD",
-      date: "Jan 2021 - Feb 2022",
+      date: "2023 - Present", 
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Developed health record management system with React.js and modern UI libraries",
+        "Implemented responsive design using Tailwind CSS and Material-UI",
+        "Created interactive user interfaces with framer-motion animations",
+        "Integrated third-party APIs for enhanced functionality and data visualization",
       ],
     },
     {
-      title: "Web Developer",
-      company_name: "Shopify",
+      title: "Backend Developer", 
+      company_name: "Open Source",
       icon: shopify,
       iconBg: "#383E56",
-      date: "Jan 2022 - Jan 2023",
+      date: "2024 - Present",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Built RESTful APIs using Node.js and Express.js for various applications",
+        "Designed and implemented database schemas with MongoDB and Mongoose",
+        "Developed real-time communication features using WebRTC and Socket.io",
+        "Created restaurant management system with admin and employee dashboards",
       ],
     },
     {
-      title: "Full stack Developer",
-      company_name: "Meta",
+      title: "Student Developer",
+      company_name: "Electronics & Communication",
       icon: meta,
-      iconBg: "#E6DEDD",
-      date: "Jan 2023 - Present",
+      iconBg: "#E6DEDD", 
+      date: "2023 - 2027",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Learning advanced concepts in Electronics and Communication Engineering",
+        "Combining hardware knowledge with software development skills",
+        "Participating in hackathons and coding competitions",
+        "Contributing to open source projects and building innovative solutions",
       ],
     },
   ];
@@ -198,9 +198,9 @@ import {
   
   const projects = [
     {
-      name: "Car Rent",
+      name: "Health Record App",
       description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+        "A comprehensive MERN-stack healthcare management system that revolutionizes how patients interact with healthcare providers. Features include nearby hospital locator, appointment scheduling, health records management, and real-time communication.",
       tags: [
         {
           name: "react",
@@ -211,54 +211,77 @@ import {
           color: "green-text-gradient",
         },
         {
-          name: "tailwind",
+          name: "nodejs",
           color: "pink-text-gradient",
         },
       ],
-      image: carrent,
-      source_code_link: "https://github.com/",
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=500&h=300&fit=crop",
+      source_code_link: "https://github.com/prince04kumar/health-record-app",
+      live_demo_link: "https://health-record-app-demo.vercel.app",
     },
     {
-      name: "Job IT",
+      name: "Restaurant Management System",
       description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+        "A complete digital menu and restaurant management system with separate dashboards for admins and employees. Features include order management, inventory tracking, employee attendance, and real-time KOT generation.",
       tags: [
         {
           name: "react",
           color: "blue-text-gradient",
         },
         {
-          name: "restapi",
+          name: "sqlite",
           color: "green-text-gradient",
         },
         {
-          name: "scss",
+          name: "nodejs",
           color: "pink-text-gradient",
         },
       ],
-      image: jobit,
-      source_code_link: "https://github.com/",
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&h=300&fit=crop",
+      source_code_link: "https://github.com/prince04kumar/clint-app",
     },
     {
-      name: "Trip Guide",
+      name: "WebRTC Video Call",
       description:
-        "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+        "Real-time video calling application built with WebRTC and Socket.io. Features include peer-to-peer video calls, screen sharing, audio/video controls, and room-based communication with fallback TURN servers.",
       tags: [
         {
-          name: "nextjs",
+          name: "webrtc",
           color: "blue-text-gradient",
         },
         {
-          name: "supabase",
+          name: "socketio",
           color: "green-text-gradient",
         },
         {
-          name: "css",
+          name: "javascript",
           color: "pink-text-gradient",
         },
       ],
-      image: tripguide,
-      source_code_link: "https://github.com/",
+      image: "https://images.unsplash.com/photo-1587440871875-191322ee64b0?w=500&h=300&fit=crop",
+      source_code_link: "https://github.com/prince04kumar/WebRtc",
+      live_demo_link: "https://webrtc-cc9n.onrender.com",
+    },
+    {
+      name: "Portfolio Website",
+      description:
+        "Modern 3D portfolio website built with React.js, Three.js, and Framer Motion. Features interactive 3D models, smooth animations, responsive design, and dynamic GitHub statistics integration.",
+      tags: [
+        {
+          name: "react",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "threejs",
+          color: "green-text-gradient",
+        },
+        {
+          name: "framermotion",
+          color: "pink-text-gradient",
+        },
+      ],
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&h=300&fit=crop",
+      source_code_link: "https://github.com/prince04kumar/MyPortfolio",
     },
   ];
   
